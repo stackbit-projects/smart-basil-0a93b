@@ -1,0 +1,161 @@
+stackbitVersion: ~0.3.0
+ssgName: hugo
+publishDir: public
+dataDir: data
+pagesDir: content
+assets:
+  referenceType: static
+  staticDir: static
+  uploadDir: assets
+  publicPath: /
+models:
+  '404':
+    type: page
+    label: '404'
+    folder: '404'
+    match: '*'
+    fields:
+      - type: string
+        name: title
+        label: Title
+  page_1:
+    type: page
+    label: Page 1
+    match:
+      - services/_index.md
+      - team/_index.md
+      - _index.md
+    fields:
+      - type: string
+        name: title
+        label: Title
+      - type: string
+        name: intro_image
+        label: Intro Image
+      - type: boolean
+        name: intro_image_absolute
+        label: Intro Image Absolute
+      - type: boolean
+        name: intro_image_hide_on_mobile
+        label: Intro Image Hide On Mobile
+  service:
+    type: page
+    label: Service
+    folder: services
+    match: '*'
+    exclude:
+      - _index.md
+    fields:
+      - type: string
+        name: title
+        label: Title
+      - type: datetime
+        name: date
+        label: Date
+      - type: boolean
+        name: draft
+        label: Draft
+      - type: boolean
+        name: featured
+        label: Featured
+      - type: number
+        name: weight
+        label: Weight
+        subtype: int
+  team:
+    type: page
+    label: Team
+    folder: team
+    match: '*'
+    exclude:
+      - _index.md
+    fields:
+      - type: string
+        name: title
+        label: Title
+      - type: datetime
+        name: date
+        label: Date
+      - type: boolean
+        name: draft
+        label: Draft
+      - type: image
+        name: image
+        label: Image
+      - type: string
+        name: jobtitle
+        label: Jobtitle
+      - type: string
+        name: linkedinurl
+        label: Linkedinurl
+      - type: number
+        name: weight
+        label: Weight
+        subtype: int
+      - type: boolean
+        name: promoted
+        label: Promoted
+  page_2:
+    type: page
+    label: Page 2
+    match: '*'
+    exclude:
+      - _index.md
+    fields:
+      - type: string
+        name: title
+        label: Title
+      - type: datetime
+        name: date
+        label: Date
+      - type: string
+        name: layout
+        label: Layout
+  contact:
+    type: data
+    label: Contact
+    file: contact.yaml
+    fields:
+      - type: string
+        name: email
+        label: Email
+      - type: string
+        name: phone
+        label: Phone
+      - type: string
+        name: contact_button_link
+        label: Contact Button Link
+  features:
+    type: data
+    label: Features
+    file: features.json
+    isList: true
+    items:
+      type: object
+      fields:
+        - type: string
+          name: title
+          label: Title
+        - type: string
+          name: description
+          label: Description
+        - type: image
+          name: image
+          label: Image
+  social:
+    type: data
+    label: Social
+    file: social.json
+    isList: true
+    items:
+      type: object
+      fields:
+        - type: string
+          name: name
+          label: Name
+        - type: string
+          name: link
+          label: Link
+        - type: image
+          name: image
+          label: Image
